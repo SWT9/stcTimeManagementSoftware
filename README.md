@@ -18,9 +18,7 @@ Gradle [Download page](https://gradle.org/install/)
 # Commands for creating the MySQL database:
 
 
-First we have to access the MySQL server, for that we use the following command:
-
-    mysql -u root -p
+First we have to open the MySQL shell, for for macOS use `mysql -u root -p`
 
 Once we are inside **MySQL Shell**, we create the database:
 
@@ -36,6 +34,15 @@ Then we grant the user all the privileges:
     grant all on swtDatabase.* to 'manager'@'%';
 
 
-Command for exiting the MySQL server:
+Command for exiting the MySQL server `exit;`
 
-    exit;
+
+# Commands for running the server:
+
+Use this command inside the project folder `~/stcTimeManagementSoftware`:
+
+    graddlew bootRun
+
+# Commands for using the website:
+
+Open [localhost:8080](localhost:8080) in your browser
