@@ -1,4 +1,4 @@
-package swt.stcTimeManagementSoftware;
+/*package swt.stcTimeManagementSoftware;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,4 +10,4 @@ public class StcTimeManagementSoftwareApplication {
 		SpringApplication.run(StcTimeManagementSoftwareApplication.class, args);
 	}
 
-}
+}*/
