@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller // This means that this class is a Controller
+
+
+
 @RequestMapping(path="/demo") // This means URL's start with /demo (after Application path)
 public class MainController {
   @Autowired // This means to get the bean called userRepository
@@ -16,13 +19,14 @@ public class MainController {
   private UserRepository userRepository;
 
   @PostMapping(path="/add") // Map ONLY POST Requests
-  public @ResponseBody String addNewUser (@RequestParam String name
-      , @RequestParam String email) {
+  public @ResponseBody String addNewUser (@RequestParam String name , @RequestParam String forname
+    , @RequestParam String email ) {
     // @ResponseBody means the returned String is the response, not a view name
     // @RequestParam means it is a parameter from the GET or POST request
 
     User n = new User();
     n.setName(name);
+    n.setForname(forname);
     n.setEmail(email);
     userRepository.save(n);
     return "Saved";
