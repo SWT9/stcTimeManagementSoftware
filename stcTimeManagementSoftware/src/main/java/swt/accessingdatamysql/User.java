@@ -11,7 +11,7 @@ public class User {
   @GeneratedValue(strategy=GenerationType.AUTO)
   private Integer id;
 
-  private String userID; 
+  private String username; 
 
   private String forname;
 
@@ -47,12 +47,12 @@ public class User {
     this.id = id;
   }
 
-  public String getUserID() {
-    return userID;
+  public String getUsername() {
+    return username;
   }
 
-  public void setUserID(String userID) {
-    this.userID = userID;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   public String getForname() {
