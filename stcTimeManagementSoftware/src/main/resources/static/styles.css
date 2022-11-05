@@ -1,0 +1,111 @@
+@font-face {
+    font-family: "QuickSand";
+    src: url("Quicksand.ttf") format("truetype-variations");
+    font-weight: 1 999;
+}
+
+* {
+    font-family: "QuickSand";
+    padding: 0;
+    list-style-position: inside;
+    text-align: left;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: aqua;
+}
+
+div#leftButtons {
+    width: 220pt;
+    height: 100%;
+    padding: 5pt 20pt;
+    /*diffused grey box shadow on the right*/
+    box-shadow: 0pt 0pt 10pt 5pt rgba(0, 0, 0, 0.2);
+}
+
+div#leftHeader {
+    width: 200pt;
+    height: 80pt;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: rgba(249, 176, 176, 0.5); */
+}
+
+div#STC {
+    width: 45%;
+    height: 100%;
+    color: #079CEF;
+    font-weight: 850;
+    font-size: 45pt;
+}
+
+div#TimeManagment {
+    width: 45%;
+    height: 100%;
+    font-size: larger;
+    vertical-align: middle;
+    padding-top: 13pt;
+    font-size: 10pt;
+    font-weight: 600;
+}
+
+div#main div {
+    width: 100%;
+    height: 100%;
+}
+
+.sideTitles {
+    height: 30pt;
+    font-size: 15pt;
+    font-weight: 600;
+    padding-top: 10pt;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.subButtons {
+    font-size: 13pt;
+    font-weight: 550;
+    margin: 5pt 0pt;
+    padding: 10pt;
+    color: black;
+    /* background-color: rgb(204, 255, 255); */
+    border-radius: 10pt;
+    text-decoration: none;
+    
+}
+
+.subButtons:hover {
+    background-color: rgba(7, 156, 239, 0.1);
+}
+
+.subButtons_active {
+    font-size: 13pt;
+    font-weight: 600;
+    margin: 5pt 0pt;
+    padding: 10pt;font-weight: 600;
+    background-color: #079CEF;
+    color: white;
+    border-radius: 10pt;
+    text-decoration: none;
+    
+}
+
+/*ICONS*/
+#employeeWorkHours{
+    list-style-image: url(icons/All/outline/video-time.svg);
+    vertical-align: middle;
+}
+
+#employeeApplyForVacation {
+    list-style-image: url();
+}
+
+#employeeApplyForSickness {
+    list-style-image: url();
+}

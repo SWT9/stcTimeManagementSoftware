@@ -53,7 +53,7 @@ public class JdbcSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.formLogin();
 
         http.authorizeRequests()
-                .antMatchers("/home").hasAnyAuthority("hr", "supervisor")
+                .antMatchers("/home").hasAnyAuthority("hr", "supervisor", "admin")
                 .antMatchers("/demo/*").hasAuthority("admin")
                 .antMatchers("/").permitAll();
         
