@@ -32,9 +32,36 @@ public class HomeController {
     public String home() {
         return "home";
     }
+    // Employee
     @GetMapping("/workHours")
     public String workHours() {
         return "workHours";
     }
-    
+    @GetMapping("/applyForVacation")
+    public String applyForVacation() {
+        return "applyForVacation";
+    }
+    @GetMapping("/applyForSickness")
+    public String applyForSickness() {
+        return "applyForSickness";
+    }
+    // Supervisor
+
+    @GetMapping("/monthWorkHours")
+    public String monthWorkHours() {
+        return "monthWorkHours";
+    }
+    @GetMapping("/vacationRequests")
+    public String vacationRequests() {
+        return "vacationRequests";
+    }
+
+    // HR
+    public String userManagement() {
+        return "userManagement";
+    }
+    @GetMapping("/sickEmployees")
+    public String sickEmployees() {
+        return "sickEmployees";
+    }
 }

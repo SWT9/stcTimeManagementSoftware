@@ -8,6 +8,7 @@
     font-family: "QuickSand";
     padding: 0;
     list-style-position: inside;
+    list-style-type: none;
     text-align: left;
 }
 
@@ -40,6 +41,10 @@ div#leftButtons {
     flex-grow: 1;
 }
 
+.mainButtons{
+    padding-bottom: 10pt;
+}
+
 #rightButtons {
     float: right;
     width: 220pt;
@@ -54,23 +59,24 @@ div#leftButtons {
     padding: 5pt;
 }
 
-/* .inputField {
-    font-size: 10pt;
-    font-weight: 600;
-    padding: 5pt;
-    border-radius: 5pt;
-    border: 1pt solid black;
-} */
+#MessageBoard{
+    height: 300pt;
+    border-radius: 20pt;
+}
 
-
-
-
+#calendar_space{
+    height: 200pt;
+    height: 200pt;
+    margin-top: 10pt;
+    margin-bottom: 20pt;
+    /* background-color: rgb(247, 251, 255); */
+}
 
 .boxElement {
     height: 100%;
-    padding: 20pt;
+    padding: 30pt;
     box-shadow: 0pt 0pt 10pt 5pt rgba(0, 0, 0, 0.2);
-    border-radius: 20pt;
+    border-radius: 10pt;
 }
 
 #Logout {}
@@ -92,9 +98,8 @@ div#leftButtons {
 
 
 /*ICONS*/
-#employeeWorkHours {
-    list-style-image: url(icons/All/outline/video-time.svg);
-    vertical-align: middle;
+/* #employeeWorkHours {
+    list-style-image: url(icons/video-time.svg);
 }
 
 #employeeApplyForVacation {
@@ -103,4 +108,4 @@ div#leftButtons {
 
 #employeeApplyForSickness {
     list-style-image: url();
-}
+} */
