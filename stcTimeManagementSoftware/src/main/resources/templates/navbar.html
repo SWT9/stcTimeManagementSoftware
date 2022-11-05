@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>STC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Used for Bootstrap -->
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div th:fragment="navbar">
+        <div id="leftButtons">
+            <div id="leftHeader">
+                <div id="STC">STC</div>
+                <div id="TimeManagment">Time <br> Management <br> Software</div>
+            </div>
+
+            <!-- EMPLOYEE: Work Hours, Apply for Vacation, I'm Sick -->
+            <div class=mainButtons id="employee">
+                <p class="sideTitles">EMPLOYEE</p>
+                <ul class="secondaryButtons">
+                    <li class="subButtons" id="employeeWorkHours">
+                        <a href="#" class="nav-link">
+                            Work Hours
+                        </a>
+                    </li>
+                    <li class="subButtons_active" id="employeeApplyForVacation">
+                        <a href="#" class="nav-link">
+                            Apply for Vacation
+                        </a>
+                    </li>
+                    <li class="subButtons" id="employeeApplyForSickness">
+                        <a href="#" class="nav-link">
+                            Apply for Sickness
+                        </a>
+                    </li>
+                </ul>
+            </div> -->
+
+            <!-- SUPERVISOR: Month Work Hours, Vacation Requests -->
+            <div class=mainButtons id="supervisor">
+                <p class="sideTitles">SUPERVISOR</p>
+                <ul class="secondaryButtons">
+                    <li class="subButtons" id="supervisorMonthWorkHours">
+                        <a href="#" class="nav-link">
+                            Month Work Hours
+                        </a>
+                    </li>
+                    <li class="subButtons" id="supervisorVacationRequests">
+                        <a href="#" class="nav-link">
+                            Vacation Requests
+                        </a>
+                    </li>
+                </ul>
+            </div> -->
+
+            <!-- HR: User Management, Sick Employees -->
+            <div class=mainButtons id="HR">
+                <p class="sideTitles">HR</p>
+                <ul class="secondaryButtons">
+                    <li class="subButtons" id="HRUserManagement">
+                        <a href="#" class="nav-link">
+                            User Management
+                        </a>
+                    </li>
+                    <li class="subButtons" id="HRSickEmployees">
+                        <a href="#" class="nav-link">
+                            Sick Employees
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class=mainButtons id="USER">
+                <p class="sideTitles">
+                    User: [[${#httpServletRequest.remoteUser}]]
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+
+
+div#leftHeader {
+    width: 200pt;
+    height: 80pt;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: rgba(249, 176, 176, 0.5); */
+}
+
+div#STC {
+    width: 45%;
+    height: 100%;
+    color: #079CEF;
+    font-weight: 850;
+    font-size: 45pt;
+}
+
+div#TimeManagment {
+    width: 45%;
+    height: 100%;
+    font-size: larger;
+    vertical-align: middle;
+    padding-top: 13pt;
+    font-size: 10pt;
+    font-weight: 600;
+}
+
+.sideTitles {
+    height: 30pt;
+    font-size: 15pt;
+    font-weight: 600;
+    padding-top: 10pt;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.subButtons {
+    font-size: 13pt;
+    font-weight: 550;
+    margin: 5pt 0pt;
+    padding: 10pt;
+    color: black;
+    /* background-color: rgb(204, 255, 255); */
+    border-radius: 10pt;
+    text-decoration: none;
+
+}
+
+.subButtons:hover {
+    background-color: rgba(7, 156, 239, 0.1);
+}
+
+.subButtons_active {
+    font-size: 13pt;
+    font-weight: 600;
+    margin: 5pt 0pt;
+    padding: 10pt;
+    font-weight: 600;
+    background-color: #079CEF;
+    color: white;
+    border-radius: 10pt;
+    text-decoration: none;
+
+}
