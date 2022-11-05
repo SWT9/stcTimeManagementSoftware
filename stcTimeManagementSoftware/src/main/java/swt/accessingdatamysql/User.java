@@ -11,7 +11,7 @@ public class User {
   @GeneratedValue(strategy=GenerationType.AUTO)
   private Integer id;
 
-  private String userID; 
+  private String username; 
 
   private String forname;
 
@@ -31,6 +31,10 @@ public class User {
 
   private Integer remainingVacationDays; 
 
+  private Boolean enabled;
+
+  private String authority;
+
   //private String vacationDays; // "12.11.22;21.12.22"
 
   //private String sickDays; // "31.12.22;05.06.22"
@@ -47,12 +51,12 @@ public class User {
     this.id = id;
   }
 
-  public String getUserID() {
-    return userID;
+  public String getUsername() {
+    return username;
   }
 
-  public void setUserID(String userID) {
-    this.userID = userID;
+  public void setUsername(String username) {
+    this.username = username;
   }
 
   public String getForname() {
@@ -125,5 +129,13 @@ public class User {
 
   public void setRemainingVacationDays(Integer remainingVacation) {
     this.remainingVacationDays = remainingVacation;
+  }
+
+  public String getAuthority() {
+    return authority;
+  }
+
+  public void setAuthority(String authority) {
+    this.authority = authority;
   }
 }
