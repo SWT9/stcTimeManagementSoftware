@@ -36,7 +36,7 @@ public class JdbcSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 "WHERE u.username = ? " +
                 "AND u.id = a.user_id"*/ 
                 .authoritiesByUsernameQuery(
-                    "SELECT username, authority from user where username = ?" 
+                "SELECT username, authority from user where username = ?" 
                 
             );
 
