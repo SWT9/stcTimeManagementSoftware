@@ -28,12 +28,13 @@ public class HomeController {
     public String index() {
         return "index";
     }
-    @GetMapping("/hello")
-    public String hello() {
-        return "hello";
-    }
     @GetMapping("/home")
     public String home() {
         return "home";
     }
+    @GetMapping("/workHours")
+    public String workHours() {
+        return "workHours";
+    }
+    
 }
