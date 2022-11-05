@@ -40,13 +40,14 @@ a {
 
 .subButtons {
     font-size: 13pt;
-    font-weight: 550;
+    font-weight: 300;
     margin: 5pt 0pt;
+    margin-right: -20pt;
     padding: 10pt;
     color: black;
-    /* background-color: rgb(204, 255, 255); */
-    border-radius: 10pt;
+    border-radius: 10pt 0pt 0pt 10pt;
     text-decoration: none;
+    
 
 }
 
@@ -59,12 +60,25 @@ a {
     font-weight: 600;
     margin: 5pt 0pt;
     padding: 10pt;
-    font-weight: 600;
+    margin-right: -20pt;
     background-color: #079CEF;
+    fill: rgb(214, 19, 19);
     color: white;
-    border-radius: 10pt;
+    border-radius: 10pt 0pt 0pt 10pt;
     text-decoration: none;
+    align-items: center;
 
+}
+.icon {
+    fill: red;
+    width: 20pt;
+    height: 20pt;
+    margin-right: 10pt;
+    
+}
+
+.nav-link {
+    display: inline-block;
 }
 
 #rightButtons {
@@ -73,4 +87,23 @@ a {
     height: 100vh;
     padding: 20pt 20pt;
     box-shadow: 0pt 0pt 10pt 5pt rgba(0, 0, 0, 0.2);
+}
+
+#user{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#iconUser{
+    height: 50pt;
+    width: 50pt;
+    align-items: center;    
+}
+
+#userOptions{
+    margin-top: 5pt;
+    margin-left: 5pt;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
