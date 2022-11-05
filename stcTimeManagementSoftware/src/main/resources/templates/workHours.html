@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>STC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Used for Bootstrap -->
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <div id="main" class="d-flex justify-content-between">
+
+        <div th:replace="navbar :: navbar">...</div>
+
+        <div id="mainSpace">
+            <h1 style="padding-bottom: 20pt;">Work Hours</h1>
+
+            <!--            
+           <div id="day"> </div>
+           <div id="hours">
+                <div id="init_hour"></div>
+                <div id="final_hour"></div> 
+           </div> -->
+
+            <!-- <div class="boxElement"> -->
+            <h3>Input your working hours day by day</h3>
+            <!-- 3 Imput fields, Current date, start and end hours  -->
+            <div class="form-group">
+
+                <div class="d-flex justify-content-between" style="padding: 20pt 0pt">
+                    <label class="inputLabel" for="date">Date</label>
+                    <input type="date" class="form-control" id="date" placeholder="Enter date">
+                </div>
+
+                <div class="d-flex justify-content-between" style="padding: 0pt 0pt 20pt 0pt">
+                    <label class="inputLabel" for="start">Start</label>
+                    <input type="time" class="form-control" id="start" placeholder="Enter start time">
+
+                    <label class="inputLabel" for="end">End</label>
+                    <input type="time" class="form-control" id="end" placeholder="Enter end time">
+
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div th:replace="rightPanel :: rightPanel">...</div>
+
+    </div>
+
+
+    <!-- <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out" />
+    </form> -->
+</body>
+
+</html>

@@ -36,7 +36,7 @@ div#leftButtons {
 #mainSpace {
     width: 100vw - 440pt;
     height: 100vh;
-    padding: 20pt;
+    padding: 40pt;
     flex-grow: 1;
 }
 
@@ -48,11 +48,48 @@ div#leftButtons {
     box-shadow: 0pt 0pt 10pt 5pt rgba(0, 0, 0, 0.2);
 }
 
+.inputLabel {
+    font-size: 10pt;
+    font-weight: 600;
+    padding: 5pt;
+}
+
+/* .inputField {
+    font-size: 10pt;
+    font-weight: 600;
+    padding: 5pt;
+    border-radius: 5pt;
+    border: 1pt solid black;
+} */
+
+
+
+
+
+.boxElement {
+    height: 100%;
+    padding: 20pt;
+    box-shadow: 0pt 0pt 10pt 5pt rgba(0, 0, 0, 0.2);
+    border-radius: 20pt;
+}
+
 #Logout {}
 
 #Calendar {}
 
 #MessageBoard {}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*ICONS*/
 #employeeWorkHours {

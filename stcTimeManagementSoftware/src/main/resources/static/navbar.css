@@ -66,3 +66,11 @@ a {
     text-decoration: none;
 
 }
+
+#rightButtons {
+    float: right;
+    width: 220pt;
+    height: 100vh;
+    padding: 20pt 20pt;
+    box-shadow: 0pt 0pt 10pt 5pt rgba(0, 0, 0, 0.2);
+}
