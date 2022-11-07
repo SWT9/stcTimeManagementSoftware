@@ -17,7 +17,8 @@ public class WorkHours {
   @GeneratedValue(strategy=GenerationType.AUTO)
   private Integer id;
   
-  @ManyToOne(targetEntity = swt.accessingdatamysql.User.class) //nessecary 
+  //@ManyToOne(targetEntity = swt.accessingdatamysql.User.class) //nessecary 
+  @JoinColumn(name = "user_id", referencedColumnName = "id")
   private Integer userId;    //==User
 
   private String workDate;

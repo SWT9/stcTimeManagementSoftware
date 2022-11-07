@@ -50,6 +50,7 @@ public class HomeController {
         User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         work.setUserId(user.getId());
         
+        
         model.addAttribute("work", work);
         workHoursRepository.save(work);
         return "workHours";
