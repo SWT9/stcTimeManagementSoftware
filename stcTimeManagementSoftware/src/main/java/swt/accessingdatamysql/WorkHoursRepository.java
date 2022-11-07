@@ -9,6 +9,6 @@ import swt.accessingdatamysql.thirdTry.WorkHours;
 
 public interface WorkHoursRepository extends CrudRepository<WorkHours, Integer>{
     
-    String findTimeById(int id);
+    String findById(int id);
 }
 
