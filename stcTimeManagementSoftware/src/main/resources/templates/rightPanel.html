@@ -15,15 +15,46 @@
 <body>
     <div th:fragment="rightPanel">
         <div id="rightButtons">
-            <div id="Logout">
-                <a th:href="@{logout}" class="nav-link">
-                    Logout
-                </a>
+            <div class="mainButtons d-flex justify-content-start" id="user">
+                <div id="iconUser" class="d-flex align-items-center">
+                    <img src="icons/user-picture.svg" alt="user">
+                </div>
+
+                <div id="userOptions" style="display: inline-block;">
+                    <div id="Username" style="font-size: larger; font-weight: bold">
+                        [[${#httpServletRequest.remoteUser}]]</div>
+                    <div id="Logout">
+                        <a th:href="@{logout}" class="nav-link">
+                            Logout
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div id="Calendar">CALENDAR</div>
-            <div id="MessageBoard">MESSAGE BOARD</div>
+            <div id="Calendar">
+                <h4>CALENDAR</h4>
+                <div style="display: inline-block">Today:
+                    <span
+                        th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy')}">[[${#dates.format(#dates.createNow(),
+                        'dd/MM/yyyy')}]]
+                    </span>
+                </div>
+
+            </div>
+            
+            <!-- Monthly Calendar -->
+            <div id="calendar_space">
+                <div id="current_month_calendar">
+
+                </div>
+            </div>
+
+            <div id="MessageBoard">
+                <h4>MESSAGE BOARD</h4>
+                <div>
+                    Message 1
+                </div>
+            </div>
         </div>
-    </div>
 </body>
 
 </html>

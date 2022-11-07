@@ -17,70 +17,73 @@
         <div id="leftButtons">
             <div id="leftHeader">
                 <a th:href="@{/home}" style="text-decoration: none;">
-                    <div id="STC">STC</div></a>
-                    <div id="TimeManagment">Time <br> Management <br> Software</div>
+                    <div id="STC">STC</div>
+                </a>
+                <div id="TimeManagment">Time <br> Management <br> Software</div>
             </div>
 
             <!-- EMPLOYEE: Work Hours, Apply for Vacation, I'm Sick -->
             <div class=mainButtons id="employee">
                 <p class="sideTitles">EMPLOYEE</p>
-                <ul class="secondaryButtons">
-                    <li class="subButtons" id="employeeWorkHours">
-                        <a th:href="@{/workHours}" class="nav-link">
+                <div class="secondaryButtons">
+                    <div class="subButtons" id="employeeWorkHours">
+                        <img th:href="@{/workHours}" src="icons/video-time.svg" alt="Work Hours" class="icon">
+                        <a th:href="@{/workHours}" class="nav-link" style="display: inline-block;">
                             Work Hours
                         </a>
-                    </li>
-                    <li class="subButtons_active" id="employeeApplyForVacation">
-                        <a href="#" class="nav-link">
+                    </div>
+                    <div class="subButtons_active" id="employeeApplyForVacation">
+                        <img th:href="@{/applyForVacation}" src="icons/airplane.svg" alt="Apply For Vacation" class="icon">
+                        <a th:href="@{/applyForVacation}" class="nav-link" style="display: inline-block;">
                             Apply for Vacation
                         </a>
-                    </li>
-                    <li class="subButtons" id="employeeApplyForSickness">
-                        <a href="#" class="nav-link">
+                    </div>
+                    <div class="subButtons" id="employeeApplyForSickness">
+                        <img th:href="@{/applyForSickness}" src="icons/health.svg" alt="Apply For Sickness" class="icon">
+                        <a th:href="@{/applyForSickness}" class="nav-link" style="display: inline-block;">
                             Apply for Sickness
                         </a>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
 
             <!-- SUPERVISOR: Month Work Hours, Vacation Requests -->
             <div class=mainButtons id="supervisor">
                 <p class="sideTitles">SUPERVISOR</p>
-                <ul class="secondaryButtons">
-                    <li class="subButtons" id="supervisorMonthWorkHours">
-                        <a href="#" class="nav-link">
+                <div class="secondaryButtons">
+                    <div class="subButtons" id="supervisorMonthWorkHours">
+                        <!-- icons/vide-time.svg  -->
+                        <img th:href="@{/monthWorkHours}" src="icons/video-time.svg" alt="Month Work Hours" class="icon">
+                        <a th:href="@{/monthWorkHours}" class="nav-link" style="display: inline-block;">
                             Month Work Hours
                         </a>
-                    </li>
-                    <li class="subButtons" id="supervisorVacationRequests">
-                        <a href="#" class="nav-link">
+                    </div>
+                    <div class="subButtons" id="supervisorVacationRequests">
+                        <img th:href="@{/vacationRequests}" src="icons/airplane.svg" alt="Vacation Requests" class="icon">
+                        <a th:href="@{/vacationRequests}" class="nav-link" style="display: inline-block;">
                             Vacation Requests
                         </a>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
 
             <!-- HR: User Management, Sick Employees -->
             <div class=mainButtons id="HR">
                 <p class="sideTitles">HR</p>
-                <ul class="secondaryButtons">
-                    <li class="subButtons" id="HRUserManagement">
-                        <a href="#" class="nav-link">
+                <div class="secondaryButtons">
+                    <div class="subButtons" id="HRUserManagement">
+                        <img th:href="@{/userManagement}" src="icons/profile-2user.svg" alt="User Management" class="icon">
+                        <a th:href="@{/userManagement}" class="nav-link" style="display: inline-block;">
                             User Management
                         </a>
-                    </li>
-                    <li class="subButtons" id="HRSickEmployees">
-                        <a href="#" class="nav-link">
+                    </div>
+                    <div class="subButtons" id="HRSickEmployees">
+                        <img th:href="@{/sickEmployees}" src="icons/health.svg" alt="Sick Employees" class="icon">
+                        <a th:href="@{/sickEmployees}" class="nav-link" style="display: inline-block;">
                             Sick Employees
                         </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class=mainButtons id="USER">
-                <p class="sideTitles">
-                    User: [[${#httpServletRequest.remoteUser}]]
-                </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

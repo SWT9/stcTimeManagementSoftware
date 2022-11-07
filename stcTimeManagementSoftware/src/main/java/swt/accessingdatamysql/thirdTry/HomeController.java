@@ -25,7 +25,6 @@ public class HomeController {
 
 	@GetMapping("/mainPage")
 	public String user(Model model) {
-		//model.addAttribute("username", mySessionInfo.getCurrentUser().getUsername());   // attribut which will be adressed
 		
         model.addAttribute("username", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getForname());
         return "mainPage";  // return name of adressed html file in /templates
@@ -39,6 +38,7 @@ public class HomeController {
     public String home() {
         return "home";
     }
+    // Employee
     @GetMapping("/workHours")
     public String workHours(Model model) {
         model.addAttribute("work", new WorkHours());
@@ -56,6 +56,32 @@ public class HomeController {
         return "workHours";
     }
 
-    
-    
+    @GetMapping("/applyForVacation")
+    public String applyForVacation() {
+        return "applyForVacation";
+    }
+    @GetMapping("/applyForSickness")
+    public String applyForSickness() {
+        return "applyForSickness";
+    }
+    // Supervisor
+
+    @GetMapping("/monthWorkHours")
+    public String monthWorkHours() {
+        return "monthWorkHours";
+    }
+    @GetMapping("/vacationRequests")
+    public String vacationRequests() {
+        return "vacationRequests";
+    }
+
+    // HR
+    public String userManagement() {
+        return "userManagement";
+    }
+    @GetMapping("/sickEmployees")
+    public String sickEmployees() {
+        return "sickEmployees";
+    }
+
 }
