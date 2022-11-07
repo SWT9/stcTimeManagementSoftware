@@ -35,12 +35,6 @@ public class User {
 
   private String authority;
 
-  //private String vacationDays; // "12.11.22;21.12.22"
-
-  //private String sickDays; // "31.12.22;05.06.22"
-
-  //private String workHours; // "02.04.22:5,17;" //Dates:Start,End;  
-
 
 
   public Integer getId() {

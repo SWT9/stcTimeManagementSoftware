@@ -35,25 +35,29 @@
             <h3>Input your working hours day by day</h3>
             <!-- 3 Imput fields, Current date, start and end hours  -->
             <div class="form-group">
-
+            <form action="#" th:action="@{/workHours}" th:object="${work}" method="post">
                 <div class="d-flex justify-content-between" style="padding: 20pt 0pt">
                     <label class="inputLabel" for="date">Date</label>
-                    <input type="date" class="form-control" id="date" placeholder="Enter date">
+                    <input type="date" class="form-control" id="date" placeholder="Enter date" th:field="*{workDate}">
                 </div>
 
                 <div class="d-flex justify-content-between" style="padding: 0pt 0pt 20pt 0pt">
                     <label class="inputLabel" for="start">Start</label>
-                    <input type="time" class="form-control" id="start" placeholder="Enter start time">
+                    <input type="time" class="form-control" id="start" placeholder="Enter start time" th:field="*{startTime}">
 
                     <label class="inputLabel" for="end">End</label>
-                    <input type="time" class="form-control" id="end" placeholder="Enter end time">
+                    <input type="time" class="form-control" id="end" placeholder="Enter end time" th:field="*{endTime}">
 
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <button type="submit" class="btn btn-primary" style="background-color: #079CEF; border-width: 0; width: 100%; height: 30pt;">Submit</button>
+             
+                </div>
+            
+                    <button type="submit" value="Submit" class="btn btn-primary" style="background-color: #079CEF; border-width: 0; width: 100%; height: 30pt;">Submit</button>
                 </div>
 
+                </form>
             </div>
         </div>
 
