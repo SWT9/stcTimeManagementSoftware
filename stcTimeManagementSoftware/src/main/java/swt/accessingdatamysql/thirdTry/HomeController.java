@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import swt.accessingdatamysql.SicknessTime;
+import swt.accessingdatamysql.SicknessTimeRepository;
 import swt.accessingdatamysql.User;
 import swt.accessingdatamysql.UserRepository;
 import swt.accessingdatamysql.VacationTime;
@@ -26,6 +28,9 @@ public class HomeController {
 
     @Autowired
     private VacationTimeRepository vacationTimeRepository;
+
+    @Autowired
+    private SicknessTimeRepository sicknessTimeRepository;
 
 	@GetMapping("/mainPage")
 	public String user(Model model) {
@@ -77,10 +82,22 @@ public class HomeController {
     }
 
 
-    @GetMapping("/applyForSickness")
-    public String applyForSickness() {
-        return "applyForSickness";
+    @GetMapping("/applySickness")
+    public String applySickness(Model model) {
+        model.addAttribute("day", new SicknessTime());
+        return "applySickness";
     }
+
+    @PostMapping("/applySickness")
+    public String sicknessSubmit(@ModelAttribute SicknessTime day, Model model) {
+        User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+        day.setUserId(user.getId());
+        
+        model.addAttribute("day", day);
+        sicknessTimeRepository.save(day);
+        return "applySickness";
+    }
+
     // Supervisor
 
     @GetMapping("/monthWorkHours")
