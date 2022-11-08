@@ -32,14 +32,10 @@
 
                     </div>
 
-                    <button type="submit" value="Submit" class="btn btn-primary"
-                        style="background-color: #079CEF; border-width: 0; width: 100%; height: 30pt;"
-                        onclick="myFunction()">
-
+                    <button onclick="myFunction()" type="submit" value="Submit" class="submitButton">
                         Submit
-
-
                     </button>
+
                     <script>
                         function myFunction() {
                             var a = [[${ day != -1}]];
@@ -61,19 +57,19 @@
             <h3>Your sickness history</h3>
 
 
-            <table class="table table-striped">
+            <table class="table table-hover">
                 <thead>
                     <tr>
                         <th scope="col">Sickness Date</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr> 
+                    <tr>
                         <!-- <td>[[${day}]]</td>  -->
                         <!-- <td th:text="${day.getSicknessDay()}">...</td> -->
                         <td>08/11/2022</td>
                     </tr>
-                    <tr> 
+                    <tr>
                         <td>09/11/2022</td>
                     </tr>
                 </tbody>

@@ -108,8 +108,27 @@ body {
     align-items: center;
     padding-top: 10pt;
 }
-.form-group{
+
+.form-group {
     padding-bottom: 40pt;
+}
+
+.submitButton {
+    height: 50pt;
+    border-radius: 5pt;
+    text-align: center;
+    font-size: large;
+    font-weight: 600;
+    background-color: #079CEF;
+    color: white;
+    border-width: 0;
+    width: 100%;
+    height: 30pt;
+}
+
+.submitButton:hover {
+    font-weight: 900;
+    box-shadow: #079eef61 0pt 0pt 20pt 0pt;
 }
 
 #Calendar {}

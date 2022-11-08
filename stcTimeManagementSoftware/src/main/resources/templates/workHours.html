@@ -42,11 +42,38 @@
 
                     <div class="d-flex justify-content-between"></div>
 
-                    <button type="submit" value="Submit" class="btn btn-primary"
-                        style="background-color: #079CEF; border-width: 0; width: 100%; height: 30pt;">Submit</button>
+                    <button type="submit" value="Submit" class="submitButton">Submit</button>
                 </form>
 
             </div>
+
+            <h3>Month work hours</h3>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Work Date </th>
+                        <th>Start Hour </th>
+                        <th>End Hour </th>
+                        <th>Total Day Worked Hours </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="work : ${workHours}">
+                        <td th:text="${work.workDate}"></td>
+                        <td th:text="${work.startTime}"></td>
+                        <td th:text="${work.endTime}"></td>
+                        <td th:text="${work.hours}"></td>
+                    </tr>
+                    <tr>
+                        <td>08/11/2022</td>
+                        <td>15:30</td>
+                        <td>21:00</td>
+                        <td>5:50 h</td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
 
         <div th:replace="rightPanel :: rightPanel">...</div>
