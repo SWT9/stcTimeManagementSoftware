@@ -1,5 +1,7 @@
 package swt.accessingdatamysql;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
 import swt.accessingdatamysql.thirdTry.WorkHours;
@@ -10,5 +12,7 @@ import swt.accessingdatamysql.thirdTry.WorkHours;
 public interface WorkHoursRepository extends CrudRepository<WorkHours, Integer>{
     
     WorkHours findById(int id);
+
+    List<WorkHours> findAllByUserId(int userId);
 }
 

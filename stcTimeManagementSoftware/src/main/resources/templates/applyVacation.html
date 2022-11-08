@@ -62,13 +62,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>🛫 22/12/2022</td>
-                        <td>26/12/2022 🛬</td>
-                    </tr>
-                    <tr>
-                        <td>🛫 30/12/2022</td>
-                        <td>08/01/2023 🛬</td>
+                    <tr th:each="dataTable: ${dataTable}">
+                        <td th:text="${dataTable.startPeriod}" /></td>
+                        <td th:text="${dataTable.endPeriod}" /></td>
                     </tr>
                     <tr>
                         <td>🛫 20/07/2023</td>

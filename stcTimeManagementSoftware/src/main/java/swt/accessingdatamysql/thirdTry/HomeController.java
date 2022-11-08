@@ -45,17 +45,19 @@ public class HomeController {
     }
     @GetMapping("/home")
     public String home(Model model) {
+        //TODO for all --> access user 
+        model.addAttribute("user", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()));
         model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
     
-        model.addAttribute("name", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getName());
-        model.addAttribute("forname", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getForname());
         return "home";
     }
     // Employee
     @GetMapping("/workHours")
     public String workHours(Model model) {
+        User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         model.addAttribute("work", new WorkHours());
         model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
+        model.addAttribute("dataTable", workHoursRepository.findAllByUserId(user.getId()));
         return "workHours";
     }
     @PostMapping("/workHours")
@@ -71,8 +73,10 @@ public class HomeController {
 
     @GetMapping("/applyVacation")
     public String applyVacation(Model model) {
+        User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         model.addAttribute("time", new VacationTime());
         model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
+        model.addAttribute("dataTable", vacationTimeRepository.findAllByUserId(user.getId()));
         return "applyVacation";
     }
     @PostMapping("/applyVacation")
@@ -87,8 +91,12 @@ public class HomeController {
 
     @GetMapping("/applySickness")
     public String applySickness(Model model) {
+        User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         model.addAttribute("day", new SicknessTime());
         model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
+
+        model.addAttribute("dataTable", sicknessTimeRepository.findAllByUserId(user.getId()));
+
         return "applySickness";
     }
     @PostMapping("/applySickness")

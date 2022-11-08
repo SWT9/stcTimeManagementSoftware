@@ -1,5 +1,7 @@
 package swt.accessingdatamysql;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
@@ -7,5 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface SicknessTimeRepository extends CrudRepository<SicknessTime, Integer>{
     SicknessTime findById(int id);
+
+    List<SicknessTime> findAllByUserId(int userId);
 }
 
