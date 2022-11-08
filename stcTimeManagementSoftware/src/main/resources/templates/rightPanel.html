@@ -16,9 +16,9 @@
     <div th:fragment="rightPanel">
         <div id="rightButtons">
             <div class="mainButtons d-flex justify-content-start" id="user">
-                <div id="iconUser" class="d-flex align-items-center">
+                <a th:href="@{userInfo}" id="iconUser" class="d-flex align-items-center">
                     <img src="icons/user-picture.svg" alt="user">
-                </div>
+                </a>
 
                 <div id="userOptions" style="display: inline-block;">
                     <div id="Username" style="font-size: larger; font-weight: bold">
@@ -40,14 +40,14 @@
                 </div>
 
             </div>
-            
-            <!-- Monthly Calendar -->
+
+            <!--  Calendar -->
             <div id="calendar_space">
                 <div id="current_month_calendar">
 
                 </div>
             </div>
-
+            <!--  Message Board -->
             <div id="MessageBoard">
                 <h4>MESSAGE BOARD</h4>
                 <div>

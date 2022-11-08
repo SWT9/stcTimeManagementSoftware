@@ -68,7 +68,8 @@
                 <div class=mainButtons id="supervisor">
                     <p class="sideTitles">SUPERVISOR</p>
                     <div class="secondaryButtons">
-                        <div class="subButtons" id="supervisorMonthWorkHours">
+                        <div th:classappend="${#httpServletRequest.getRequestURI().startsWith('/monthWorkHours') ? 'subButtons_active':'subButtons'}"
+                            id="supervisorMonthWorkHours">
                             <!-- icons/vide-time.svg  -->
                             <img th:href="@{/monthWorkHours}" src="icons/video-time.svg" alt="Month Work Hours"
                                 class="icon">
@@ -76,7 +77,8 @@
                                 Month Work Hours
                             </a>
                         </div>
-                        <div class="subButtons" id="supervisorVacationRequests">
+                        <div th:classappend="${#httpServletRequest.getRequestURI().startsWith('/vacationRequests') ? 'subButtons_active':'subButtons'}"
+                            id="supervisorVacationRequests">
                             <img th:href="@{/vacationRequests}" src="icons/airplane.svg" alt="Vacation Requests"
                                 class="icon">
                             <a th:href="@{/vacationRequests}" class="nav-link" style="display: inline-block;">
@@ -93,14 +95,16 @@
                 <div class=mainButtons id="HR">
                     <p class="sideTitles">HR</p>
                     <div class="secondaryButtons">
-                        <div class="subButtons" id="HRUserManagement">
+                        <div th:classappend="${#httpServletRequest.getRequestURI().startsWith('/userManagement') ? 'subButtons_active':'subButtons'}"
+                            id="HRUserManagement">
                             <img th:href="@{/userManagement}" src="icons/profile-2user.svg" alt="User Management"
                                 class="icon">
                             <a th:href="@{/userManagement}" class="nav-link" style="display: inline-block;">
                                 User Management
                             </a>
                         </div>
-                        <div class="subButtons" id="HRSickEmployees">
+                        <div th:classappend="${#httpServletRequest.getRequestURI().startsWith('/sickEmployees') ? 'subButtons_active':'subButtons'}"
+                            id="HRSickEmployees">
                             <img th:href="@{/sickEmployees}" src="icons/health.svg" alt="Sick Employees" class="icon">
                             <a th:href="@{/sickEmployees}" class="nav-link" style="display: inline-block;">
                                 Sick Employees

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+    xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>User Information - STC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Used for Bootstrap -->
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="main" class="d-flex justify-content-between">
+        <div th:replace="navbar :: navbar">...</div>
+        <div id="mainSpace">
+            <h1 style="padding-bottom: 20pt;">User Infomation</h1>
+
+            <div id="mySpace">
+
+                <div id="icon_user">
+                    <img src="icons/user-picture.svg" alt="user">
+                    <div id=text_image>
+                        <h4 class="text-center">[[${#httpServletRequest.remoteUser}]]</h4>
+                        <h5 class="text-center">[[${authority}]]</h5>
+                    </div>
+                </div>
+
+                <div id="info_user">
+
+                    <table height="200pt" padding="5pt">
+                        <tr>
+                            <th width="150pt">Full Name: </th>
+                            <td>[[${name}]] [[${forname}]]</td>
+                        </tr>
+
+                        <tr>
+                            <th>Email Address: </th>
+                            <td>[[${email}]]</td>
+
+                        </tr>
+
+                        <tr>
+                            <th>id: </th>
+                            <td>[[${id}]]</td>
+                        </tr>
+
+                        <tr th:if="${authority == ('hr') or authority == ('superhr')}">
+                            <th>
+                                HR id:
+                            </th>
+                            <td>
+                                [[${hr_id}]]
+                            </td>
+                        </tr>
+
+                        <tr th:if="${authority == ('supervisor') or authority == ('superhr')}">
+                            <th>
+                                Supervisor id:
+                            </th>
+                            <td>
+                                [[${supervisor_id}]]
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+        <div th:replace="rightPanel :: rightPanel">...</div>
+    </div>
+</body>
+
+</html>
