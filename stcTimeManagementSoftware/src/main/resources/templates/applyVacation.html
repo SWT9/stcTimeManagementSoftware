@@ -36,7 +36,7 @@
                         <input type="date" class="form-control" id="start" th:field="*{startPeriod}">
                     </div>
 
-                    <div class="d-flex justify-content-between" style="padding: 20pt 0pt">
+                    <div class="d-flex justify-content-between" style="padding-bottom: 20pt">
                         <label class="inputLabel" for="date">End Date</label>
                         <input type="date" class="form-control" id="end" th:field="*{endPeriod}">
 
@@ -46,12 +46,37 @@
 
                     </div>
 
-                    <button type="submit" value="Submit" class="btn btn-primary"
-                        style="background-color: #079CEF; border-width: 0; width: 100%; height: 30pt;">Submit</button>
+                    <button type="submit" value="Submit" class="submitButton">Submit</button>
                 </form>
 
 
             </div>
+
+            <h3>You planned vacation dates</h3>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Vacation Start Date</th>
+                        <th scope="col">Vacation End Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🛫 22/12/2022</td>
+                        <td>26/12/2022 🛬</td>
+                    </tr>
+                    <tr>
+                        <td>🛫 30/12/2022</td>
+                        <td>08/01/2023 🛬</td>
+                    </tr>
+                    <tr>
+                        <td>🛫 20/07/2023</td>
+                        <td>10/08/2023 🛬</td>
+                    </tr>
+                </tbody>
+            </table>
+
         </div>
 
         <div th:replace="rightPanel :: rightPanel">...</div>
