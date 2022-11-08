@@ -96,8 +96,22 @@ public class HomeController {
         User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         day.setUserId(user.getId());
         
+        // // Check if the day is already in the database
+        // if (sicknessTimeRepository.findById(user.getId())) {
+        //     model.addAttribute("day", -1);
+        //     System.out.println("Day already in database");
+        // }
+        // else {
+        //     model.addAttribute("day", day);
+        //     sicknessTimeRepository.save(day);
+        // }
+
         model.addAttribute("day", day);
-        sicknessTimeRepository.save(day);
+        // print out the day
+        // System.out.println(day.getSicknessDay());
+        
+        sicknessTimeRepository.save(day);     
+        
         return "applySickness";
     }
 
@@ -142,5 +156,4 @@ public class HomeController {
             
         return "userInfo";
     }
-
 }

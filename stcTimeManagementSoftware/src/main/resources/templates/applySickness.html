@@ -19,17 +19,8 @@
 
         <div id="mainSpace">
             <h1 style="padding-bottom: 20pt;">Sickness Information</h1>
-
-            <!--
-           <div id="day"> </div>
-           <div id="hours">
-                <div id="init_hour"></div>
-                <div id="final_hour"></div> 
-           </div> -->
-
-            <!-- <div class="boxElement"> -->
             <h3>You are sick? Inform us now!</h3>
-            <!-- 3 Imput fields, Current date, start and end hours  -->
+
             <div class="form-group">
                 <form action="#" th:action="@{/applySickness}" th:object="${day}" method="post">
                     <div class="d-flex justify-content-between" style="padding: 20pt 0pt">
@@ -42,11 +33,53 @@
                     </div>
 
                     <button type="submit" value="Submit" class="btn btn-primary"
-                        style="background-color: #079CEF; border-width: 0; width: 100%; height: 30pt;">Submit</button>
+                        style="background-color: #079CEF; border-width: 0; width: 100%; height: 30pt;"
+                        onclick="myFunction()">
+
+                        Submit
+
+
+                    </button>
+                    <script>
+                        function myFunction() {
+                            var a = [[${ day != -1}]];
+                        console.log(a);
+                        if (a) {
+                            alert("Your sickness has been submitted!");
+                        }
+                        else {
+                            alert("You have already uploaded this date");
+                        }
+                            
+                        }
+
+                    </script>
+
                 </form>
-
-
             </div>
+
+            <h3>Your sickness history</h3>
+
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Sickness Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <!-- <td>[[${day}]]</td>  -->
+                        <!-- <td th:text="${day.getSicknessDay()}">...</td> -->
+                        <td>08/11/2022</td>
+                    </tr>
+                    <tr> 
+                        <td>09/11/2022</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
         </div>
 
         <div th:replace="rightPanel :: rightPanel">...</div>

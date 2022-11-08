@@ -108,6 +108,9 @@ body {
     align-items: center;
     padding-top: 10pt;
 }
+.form-group{
+    padding-bottom: 40pt;
+}
 
 #Calendar {}
 
