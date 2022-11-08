@@ -26,7 +26,7 @@ body {
 }
 
 
-div#leftButtons {
+#leftButtons {
     width: 220pt;
     height: 100vh;
     padding: 5pt 20pt;

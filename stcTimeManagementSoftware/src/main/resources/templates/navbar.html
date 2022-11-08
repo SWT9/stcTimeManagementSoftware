@@ -26,65 +26,90 @@
             <div class=mainButtons id="employee">
                 <p class="sideTitles">EMPLOYEE</p>
                 <div class="secondaryButtons">
-                    <div class="subButtons" id="employeeWorkHours">
+                    <div id="employeeWorkHours"
+                        th:classappend="${#httpServletRequest.getRequestURI().startsWith('/workHours') ? 'subButtons_active':'subButtons'}">
+                        <!-- ${#httpServletRequest.getRequestURI() -->
+                        <!-- This is the current URL -->
+                        <!-- .startsWith('/workHours') -->
+                        <!-- This is the URL we want to check -->
+                        <!-- ? 'subButtons_active':''} -->
+                        <!-- This is the class we want to add if the condition is true -->
+                        <!-- w iPr -->
+
                         <img th:href="@{/workHours}" src="icons/video-time.svg" alt="Work Hours" class="icon">
                         <a th:href="@{/workHours}" class="nav-link" style="display: inline-block;">
                             Work Hours
+
+                            <!-- th:classappend="${#httpServletRequest.getRequestURI().startsWith('/workHours') ? 'subButtons_active':''}" -->
+
+
                         </a>
                     </div>
-                    <div class="subButtons_active" id="employeeApplyForVacation">
+                    <div id="employeeApplyForVacation"
+                        th:classappend="${#httpServletRequest.getRequestURI().startsWith('/applyVacation') ? 'subButtons_active':'subButtons'}">
                         <img th:href="@{/applyVacation}" src="icons/airplane.svg" alt="Apply For Vacation" class="icon">
                         <a th:href="@{/applyVacation}" class="nav-link" style="display: inline-block;">
                             Apply for Vacation
                         </a>
                     </div>
-                    <div class="subButtons" id="employeeApplyForSickness">
+                    <div id="employeeApplyForSickness"
+                        th:classappend="${#httpServletRequest.getRequestURI().startsWith('/applySickness') ? 'subButtons_active':'subButtons'}">
                         <img th:href="@{/applySickness}" src="icons/health.svg" alt="Apply For Sickness" class="icon">
                         <a th:href="@{/applySickness}" class="nav-link" style="display: inline-block;">
                             Apply for Sickness
                         </a>
                     </div>
+
                 </div>
             </div>
 
             <!-- SUPERVISOR: Month Work Hours, Vacation Requests -->
-            <div class=mainButtons id="supervisor">
-                <p class="sideTitles">SUPERVISOR</p>
-                <div class="secondaryButtons">
-                    <div class="subButtons" id="supervisorMonthWorkHours">
-                        <!-- icons/vide-time.svg  -->
-                        <img th:href="@{/monthWorkHours}" src="icons/video-time.svg" alt="Month Work Hours" class="icon">
-                        <a th:href="@{/monthWorkHours}" class="nav-link" style="display: inline-block;">
-                            Month Work Hours
-                        </a>
-                    </div>
-                    <div class="subButtons" id="supervisorVacationRequests">
-                        <img th:href="@{/vacationRequests}" src="icons/airplane.svg" alt="Vacation Requests" class="icon">
-                        <a th:href="@{/vacationRequests}" class="nav-link" style="display: inline-block;">
-                            Vacation Requests
-                        </a>
+            <span th:if="${authority == ('supervisor') or authority == ('superhr')}">
+                <div class=mainButtons id="supervisor">
+                    <p class="sideTitles">SUPERVISOR</p>
+                    <div class="secondaryButtons">
+                        <div class="subButtons" id="supervisorMonthWorkHours">
+                            <!-- icons/vide-time.svg  -->
+                            <img th:href="@{/monthWorkHours}" src="icons/video-time.svg" alt="Month Work Hours"
+                                class="icon">
+                            <a th:href="@{/monthWorkHours}" class="nav-link" style="display: inline-block;">
+                                Month Work Hours
+                            </a>
+                        </div>
+                        <div class="subButtons" id="supervisorVacationRequests">
+                            <img th:href="@{/vacationRequests}" src="icons/airplane.svg" alt="Vacation Requests"
+                                class="icon">
+                            <a th:href="@{/vacationRequests}" class="nav-link" style="display: inline-block;">
+                                Vacation Requests
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </span>
+
 
             <!-- HR: User Management, Sick Employees -->
-            <div class=mainButtons id="HR">
-                <p class="sideTitles">HR</p>
-                <div class="secondaryButtons">
-                    <div class="subButtons" id="HRUserManagement">
-                        <img th:href="@{/userManagement}" src="icons/profile-2user.svg" alt="User Management" class="icon">
-                        <a th:href="@{/userManagement}" class="nav-link" style="display: inline-block;">
-                            User Management
-                        </a>
-                    </div>
-                    <div class="subButtons" id="HRSickEmployees">
-                        <img th:href="@{/sickEmployees}" src="icons/health.svg" alt="Sick Employees" class="icon">
-                        <a th:href="@{/sickEmployees}" class="nav-link" style="display: inline-block;">
-                            Sick Employees
-                        </a>
+            <span th:if="${authority == ('hr') or authority == ('superhr')}">
+                <div class=mainButtons id="HR">
+                    <p class="sideTitles">HR</p>
+                    <div class="secondaryButtons">
+                        <div class="subButtons" id="HRUserManagement">
+                            <img th:href="@{/userManagement}" src="icons/profile-2user.svg" alt="User Management"
+                                class="icon">
+                            <a th:href="@{/userManagement}" class="nav-link" style="display: inline-block;">
+                                User Management
+                            </a>
+                        </div>
+                        <div class="subButtons" id="HRSickEmployees">
+                            <img th:href="@{/sickEmployees}" src="icons/health.svg" alt="Sick Employees" class="icon">
+                            <a th:href="@{/sickEmployees}" class="nav-link" style="display: inline-block;">
+                                Sick Employees
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </span>
+
         </div>
     </div>
 </body>

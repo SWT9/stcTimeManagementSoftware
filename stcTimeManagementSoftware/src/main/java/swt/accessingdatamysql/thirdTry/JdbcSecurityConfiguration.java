@@ -53,9 +53,9 @@ public class JdbcSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.formLogin();
 
         http.authorizeRequests()
-                .antMatchers("/home").hasAnyAuthority("hr", "supervisor", "admin")
+                .antMatchers("/home").hasAnyAuthority("hr", "supervisor", "admin", "employee")
                 .antMatchers("/demo/*").hasAuthority("admin")
-                .antMatchers("/workHours").hasAnyAuthority("hr", "supervisor", "admin", "employee")
+                // .antMatchers("/workHours").hasAnyAuthority("hr", "supervisor", "admin", "employee")
                 .antMatchers("/").permitAll();
         
         http.csrf().disable();

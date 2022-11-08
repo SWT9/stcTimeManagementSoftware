@@ -44,16 +44,17 @@ public class HomeController {
         return "index";
     }
     @GetMapping("/home")
-    public String home() {
+    public String home(Model model) {
+        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
         return "home";
     }
     // Employee
     @GetMapping("/workHours")
     public String workHours(Model model) {
         model.addAttribute("work", new WorkHours());
+        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
         return "workHours";
     }
-
     @PostMapping("/workHours")
     public String workHoursSubmit(@ModelAttribute WorkHours work, Model model) {
         User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
@@ -68,9 +69,9 @@ public class HomeController {
     @GetMapping("/applyVacation")
     public String applyVacation(Model model) {
         model.addAttribute("time", new VacationTime());
+        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
         return "applyVacation";
     }
-
     @PostMapping("/applyVacation")
     public String vacationSubmit(@ModelAttribute VacationTime time, Model model) {
         User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
@@ -81,13 +82,12 @@ public class HomeController {
         return "applyVacation";
     }
 
-
     @GetMapping("/applySickness")
     public String applySickness(Model model) {
         model.addAttribute("day", new SicknessTime());
+        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
         return "applySickness";
     }
-
     @PostMapping("/applySickness")
     public String sicknessSubmit(@ModelAttribute SicknessTime day, Model model) {
         User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
@@ -99,22 +99,26 @@ public class HomeController {
     }
 
     // Supervisor
-
     @GetMapping("/monthWorkHours")
-    public String monthWorkHours() {
+    public String monthWorkHours(Model model) {
+        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
         return "monthWorkHours";
     }
     @GetMapping("/vacationRequests")
-    public String vacationRequests() {
+    public String vacationRequests(Model model) {
+        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
         return "vacationRequests";
     }
 
     // HR
-    public String userManagement() {
+    @GetMapping("/userManagement")
+    public String userManagement(Model model) {
+        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
         return "userManagement";
     }
     @GetMapping("/sickEmployees")
-    public String sickEmployees() {
+    public String sickEmployees(Model model) {
+        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
         return "sickEmployees";
     }
 
