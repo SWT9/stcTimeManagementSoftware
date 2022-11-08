@@ -46,6 +46,9 @@ public class HomeController {
     @GetMapping("/home")
     public String home(Model model) {
         model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
+    
+        model.addAttribute("name", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getName());
+        model.addAttribute("forname", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getForname());
         return "home";
     }
     // Employee
@@ -120,6 +123,24 @@ public class HomeController {
     public String sickEmployees(Model model) {
         model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
         return "sickEmployees";
+    }
+
+    // User Information
+    @GetMapping("/userInfo")
+    public String userInfo(Model model) {
+        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
+
+        model.addAttribute("name", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getName());
+        model.addAttribute("forname", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getForname());
+        model.addAttribute("email", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getEmail());
+        
+        model.addAttribute("id", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getId());
+        // hr_id
+        model.addAttribute("hr_id", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getHrId());
+        // supervisor_id
+        model.addAttribute("supervisor_id", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getSupervisorId());
+            
+        return "userInfo";
     }
 
 }

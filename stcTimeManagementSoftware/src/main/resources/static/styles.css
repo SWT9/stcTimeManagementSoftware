@@ -15,7 +15,6 @@
 html,
 body {
     height: 100%;
-    background-color: aqua;
 }
 
 .main {
@@ -41,7 +40,7 @@ body {
     flex-grow: 1;
 }
 
-.mainButtons{
+.mainButtons {
     padding-bottom: 10pt;
 }
 
@@ -59,12 +58,12 @@ body {
     padding: 5pt;
 }
 
-#MessageBoard{
+#MessageBoard {
     height: 300pt;
     border-radius: 20pt;
 }
 
-#calendar_space{
+#calendar_space {
     height: 200pt;
     height: 200pt;
     margin-top: 10pt;
@@ -79,33 +78,37 @@ body {
     border-radius: 10pt;
 }
 
-#Logout {}
+#Logout:hover {
+    color: rgb(171, 42, 42);
+    font-weight: 600;
+}
+
+#mySpace {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 15pt;
+}
+
+#icon_user {
+    height: 200pt;
+    width: 200pt;
+    padding-top: 20pt;
+    padding-left: 20pt;
+}
+
+#info_user {
+    padding-top: 20pt;
+    padding-left: 20pt;
+}
+
+#text_image {
+    width: 180pt;
+    text-align: center;
+    align-items: center;
+    padding-top: 10pt;
+}
 
 #Calendar {}
 
 #MessageBoard {}
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*ICONS*/
-/* #employeeWorkHours {
-    list-style-image: url(icons/video-time.svg);
-}
-
-#employeeApplyForVacation {
-    list-style-image: url();
-}
-
-#employeeApplyForSickness {
-    list-style-image: url();
-} */

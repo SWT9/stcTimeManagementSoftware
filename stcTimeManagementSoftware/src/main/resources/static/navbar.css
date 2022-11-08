@@ -1,5 +1,3 @@
-
-
 div#leftHeader {
     width: 200pt;
     height: 80pt;
@@ -47,7 +45,7 @@ a {
     color: black;
     border-radius: 10pt 0pt 0pt 10pt;
     text-decoration: none;
-    
+
 
 }
 
@@ -69,12 +67,13 @@ a {
     align-items: center;
 
 }
+
 .icon {
     fill: red;
     width: 20pt;
     height: 20pt;
     margin-right: 10pt;
-    
+
 }
 
 .nav-link {
@@ -89,19 +88,19 @@ a {
     box-shadow: 0pt 0pt 10pt 5pt rgba(0, 0, 0, 0.2);
 }
 
-#user{
-    display:flex;
+#user {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-#iconUser{
+#iconUser {
     height: 50pt;
     width: 50pt;
-    align-items: center;    
+    align-items: center;
 }
 
-#userOptions{
+#userOptions {
     margin-top: 5pt;
     margin-left: 5pt;
     flex-direction: column;

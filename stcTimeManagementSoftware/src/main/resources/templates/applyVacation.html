@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>STC</title>
+    <title>Vacation Application - STC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Used for Bootstrap -->
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="styles.css">
@@ -13,10 +13,6 @@
 </head>
 
 <body>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
     <div id="main" class="d-flex justify-content-between">
 
         <div th:replace="navbar :: navbar">...</div>
@@ -33,28 +29,28 @@
 
             <!-- <div class="boxElement"> -->
             <h3>Put your wished vacation period in here</h3>
-            <!-- 3 Imput fields, Current date, start and end hours  -->
             <div class="form-group">
-            <form action="#" th:action="@{/applyVacation}" th:object="${time}" method="post">
-                <div class="d-flex justify-content-between" style="padding: 20pt 0pt">
-                    <label class="inputLabel" for="date">Start Date</label>
-                    <input type="date" class="form-control" id="start" th:field="*{startPeriod}">
-                </div>
+                <form action="#" th:action="@{/applyVacation}" th:object="${time}" method="post">
+                    <div class="d-flex justify-content-between" style="padding: 20pt 0pt">
+                        <label class="inputLabel" for="date">Start Date</label>
+                        <input type="date" class="form-control" id="start" th:field="*{startPeriod}">
+                    </div>
 
-                <div class="d-flex justify-content-between" style="padding: 20pt 0pt">
-                    <label class="inputLabel" for="date">End Date</label>
-                    <input type="date" class="form-control" id="end"  th:field="*{endPeriod}">
+                    <div class="d-flex justify-content-between" style="padding: 20pt 0pt">
+                        <label class="inputLabel" for="date">End Date</label>
+                        <input type="date" class="form-control" id="end" th:field="*{endPeriod}">
 
-                </div>
+                    </div>
 
-                <div class="d-flex justify-content-between">
-             
-                </div>
-            
-                    <button type="submit" value="Submit" class="btn btn-primary" style="background-color: #079CEF; border-width: 0; width: 100%; height: 30pt;">Submit</button>
+                    <div class="d-flex justify-content-between">
+
+                    </div>
+
+                    <button type="submit" value="Submit" class="btn btn-primary"
+                        style="background-color: #079CEF; border-width: 0; width: 100%; height: 30pt;">Submit</button>
                 </form>
-                
-                
+
+
             </div>
         </div>
 
@@ -62,11 +58,6 @@
 
     </div>
 
-
-    <!-- <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out" />
-    </form> -->
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>STC</title>
+    <title>WorkHours - STC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Used for Bootstrap -->
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="styles.css">
@@ -14,62 +14,45 @@
 
 <body>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
     <div id="main" class="d-flex justify-content-between">
-
         <div th:replace="navbar :: navbar">...</div>
 
         <div id="mainSpace">
             <h1 style="padding-bottom: 20pt;">Work Hours</h1>
 
-            <!--            
-           <div id="day"> </div>
-           <div id="hours">
-                <div id="init_hour"></div>
-                <div id="final_hour"></div> 
-           </div> -->
-
-            <!-- <div class="boxElement"> -->
             <h3>Input your working hours day by day</h3>
-            <!-- 3 Imput fields, Current date, start and end hours  -->
+
             <div class="form-group">
-            <form action="#" th:action="@{/workHours}" th:object="${work}" method="post">
-                <div class="d-flex justify-content-between" style="padding: 20pt 0pt">
-                    <label class="inputLabel" for="date">Date</label>
-                    <input type="date" class="form-control" id="date" placeholder="Enter date" th:field="*{workDate}">
-                </div>
+                <form action="#" th:action="@{/workHours}" th:object="${work}" method="post">
+                    <div class="d-flex justify-content-between" style="padding: 20pt 0pt">
+                        <label class="inputLabel" for="date">Date</label>
+                        <input type="date" class="form-control" id="date" placeholder="Enter date"
+                            th:field="*{workDate}">
+                    </div>
 
-                <div class="d-flex justify-content-between" style="padding: 0pt 0pt 20pt 0pt">
-                    <label class="inputLabel" for="start">Start</label>
-                    <input type="time" class="form-control" id="start" placeholder="Enter start time" th:field="*{startTime}">
+                    <div class="d-flex justify-content-between" style="padding: 0pt 0pt 20pt 0pt">
+                        <label class="inputLabel" for="start">Start</label>
+                        <input type="time" class="form-control" id="start" placeholder="Enter start time"
+                            th:field="*{startTime}">
 
-                    <label class="inputLabel" for="end">End</label>
-                    <input type="time" class="form-control" id="end" placeholder="Enter end time" th:field="*{endTime}">
+                        <label class="inputLabel" for="end">End</label>
+                        <input type="time" class="form-control" id="end" placeholder="Enter end time"
+                            th:field="*{endTime}">
+                    </div>
 
-                </div>
+                    <div class="d-flex justify-content-between"></div>
 
-                <div class="d-flex justify-content-between">
-             
-                </div>
-            
-                    <button type="submit" value="Submit" class="btn btn-primary" style="background-color: #079CEF; border-width: 0; width: 100%; height: 30pt;">Submit</button>
+                    <button type="submit" value="Submit" class="btn btn-primary"
+                        style="background-color: #079CEF; border-width: 0; width: 100%; height: 30pt;">Submit</button>
                 </form>
-                
-                
+
             </div>
         </div>
 
         <div th:replace="rightPanel :: rightPanel">...</div>
 
     </div>
-
-
-    <!-- <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out" />
-    </form> -->
+    
 </body>
 
 </html>
