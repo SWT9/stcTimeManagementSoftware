@@ -59,17 +59,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="work : ${workHours}">
-                        <td th:text="${work.workDate}"></td>
-                        <td th:text="${work.startTime}"></td>
-                        <td th:text="${work.endTime}"></td>
-                        <td th:text="${work.hours}"></td>
-                    </tr>
-                    <tr>
-                        <td>08/11/2022</td>
-                        <td>15:30</td>
-                        <td>21:00</td>
-                        <td>5:50 h</td>
+                    <tr th:each="dataTable : ${dataTable}">
+                        <td th:text="${dataTable.workDate}"></td>
+                        <td th:text="${dataTable.startTime}"></td>
+                        <td th:text="${dataTable.endTime}"></td>
+                        <td th:text="${dataTable.workTime}"></td>
                     </tr>
                 </tbody>
             </table>

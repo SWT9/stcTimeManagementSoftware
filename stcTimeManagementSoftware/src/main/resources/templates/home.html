@@ -17,7 +17,7 @@
         <div th:replace="navbar :: navbar">...</div>
         <div id="mainSpace">
             <h1>STC - Time Managment Software</h1>
-            <h2>Welcome [[${forname}]] [[${name}]]!<h2>
+            <h2>Welcome [[${user.forname}]] [[${user.name}]]!<h2>
         </div>
         <div th:replace="rightPanel :: rightPanel">...</div>
     </div>

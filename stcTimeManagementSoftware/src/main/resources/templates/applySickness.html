@@ -64,13 +64,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <!-- <td>[[${day}]]</td>  -->
-                        <!-- <td th:text="${day.getSicknessDay()}">...</td> -->
-                        <td>08/11/2022</td>
-                    </tr>
-                    <tr>
-                        <td>09/11/2022</td>
+                    <tr th:each="dataTable: ${dataTable}">
+                        <td th:text="${dataTable.sicknessDay}" />
                     </tr>
                 </tbody>
             </table>
