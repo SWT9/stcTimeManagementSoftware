@@ -1,5 +1,9 @@
 package swt.accessingdatamysql.thirdTry;
 
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -47,7 +51,6 @@ public class HomeController {
     public String home(Model model) {
         //TODO for all --> access user 
         model.addAttribute("user", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()));
-        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
     
         return "home";
     }
@@ -56,16 +59,19 @@ public class HomeController {
     public String workHours(Model model) {
         User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         model.addAttribute("work", new WorkHours());
-        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
+        model.addAttribute("user", user);
         model.addAttribute("dataTable", workHoursRepository.findAllByUserId(user.getId()));
         return "workHours";
     }
+
     @PostMapping("/workHours")
     public String workHoursSubmit(@ModelAttribute WorkHours work, Model model) {
         User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         work.setUserId(user.getId());
         
-        
+        work.setWorkTime(Duration.between(LocalTime.parse(work.getStartTime()), LocalTime.parse(work.getEndTime())).toHours()); 
+
+        model.addAttribute("user", user);
         model.addAttribute("work", work);
         workHoursRepository.save(work);
         return "workHours";
@@ -75,7 +81,7 @@ public class HomeController {
     public String applyVacation(Model model) {
         User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         model.addAttribute("time", new VacationTime());
-        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
+        model.addAttribute("user", user);
         model.addAttribute("dataTable", vacationTimeRepository.findAllByUserId(user.getId()));
         return "applyVacation";
     }
@@ -84,6 +90,7 @@ public class HomeController {
         User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         time.setUserId(user.getId());
         
+        model.addAttribute("user", user);
         model.addAttribute("time", time);
         vacationTimeRepository.save(time);
         return "applyVacation";
@@ -93,10 +100,8 @@ public class HomeController {
     public String applySickness(Model model) {
         User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         model.addAttribute("day", new SicknessTime());
-        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
-
         model.addAttribute("dataTable", sicknessTimeRepository.findAllByUserId(user.getId()));
-
+        model.addAttribute("user", user);
         return "applySickness";
     }
     @PostMapping("/applySickness")
@@ -113,7 +118,7 @@ public class HomeController {
         //     model.addAttribute("day", day);
         //     sicknessTimeRepository.save(day);
         // }
-
+        model.addAttribute("user", user);
         model.addAttribute("day", day);
         // print out the day
         // System.out.println(day.getSicknessDay());
@@ -126,41 +131,36 @@ public class HomeController {
     // Supervisor
     @GetMapping("/monthWorkHours")
     public String monthWorkHours(Model model) {
-        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
+        User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+        model.addAttribute("user", user);
         return "monthWorkHours";
     }
     @GetMapping("/vacationRequests")
     public String vacationRequests(Model model) {
-        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
+        User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+        model.addAttribute("user", user);
         return "vacationRequests";
     }
 
     // HR
     @GetMapping("/userManagement")
     public String userManagement(Model model) {
-        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
+        User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+        model.addAttribute("user", user);
         return "userManagement";
     }
     @GetMapping("/sickEmployees")
     public String sickEmployees(Model model) {
-        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
+        User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+        model.addAttribute("user", user);
         return "sickEmployees";
     }
 
     // User Information
     @GetMapping("/userInfo")
     public String userInfo(Model model) {
-        model.addAttribute("authority", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getAuthority());
-
-        model.addAttribute("name", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getName());
-        model.addAttribute("forname", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getForname());
-        model.addAttribute("email", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getEmail());
-        
-        model.addAttribute("id", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getId());
-        // hr_id
-        model.addAttribute("hr_id", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getHrId());
-        // supervisor_id
-        model.addAttribute("supervisor_id", userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getSupervisorId());
+        User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+        model.addAttribute("user", user);
             
         return "userInfo";
     }

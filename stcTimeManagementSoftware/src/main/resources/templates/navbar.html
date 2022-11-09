@@ -64,7 +64,7 @@
             </div>
 
             <!-- SUPERVISOR: Month Work Hours, Vacation Requests -->
-            <span th:if="${authority == ('supervisor') or authority == ('superhr')}">
+            <span th:if="${user.authority == ('supervisor') or user.authoritys == ('superhr')}">
                 <div class=mainButtons id="supervisor">
                     <p class="sideTitles">SUPERVISOR</p>
                     <div class="secondaryButtons">
@@ -91,7 +91,7 @@
 
 
             <!-- HR: User Management, Sick Employees -->
-            <span th:if="${authority == ('hr') or authority == ('superhr')}">
+            <span th:if="${user.authority == ('hr') or user.authority == ('superhr')}">
                 <div class=mainButtons id="HR">
                     <p class="sideTitles">HR</p>
                     <div class="secondaryButtons">

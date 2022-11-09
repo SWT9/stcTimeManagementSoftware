@@ -33,35 +33,35 @@
                     <table height="200pt" padding="5pt">
                         <tr>
                             <th width="150pt">Full Name: </th>
-                            <td>[[${name}]] [[${forname}]]</td>
+                            <td>[[${user.name}]] [[${user.forname}]]</td>
                         </tr>
 
                         <tr>
                             <th>Email Address: </th>
-                            <td>[[${email}]]</td>
+                            <td>[[${user.email}]]</td>
 
                         </tr>
 
                         <tr>
                             <th>id: </th>
-                            <td>[[${id}]]</td>
+                            <td>[[${user.id}]]</td>
                         </tr>
 
-                        <tr th:if="${authority == ('hr') or authority == ('superhr')}">
+                        <tr th:if="${user.authority == ('hr') or user.authority == ('superhr')}">
                             <th>
                                 HR id:
                             </th>
                             <td>
-                                [[${hr_id}]]
+                                [[${user.hrId}]]
                             </td>
                         </tr>
 
-                        <tr th:if="${authority == ('supervisor') or authority == ('superhr')}">
+                        <tr th:if="${user.authority == ('supervisor') or user.authority == ('superhr')}">
                             <th>
                                 Supervisor id:
                             </th>
                             <td>
-                                [[${supervisor_id}]]
+                                [[${user.supervisorId}]]
                             </td>
                         </tr>
 

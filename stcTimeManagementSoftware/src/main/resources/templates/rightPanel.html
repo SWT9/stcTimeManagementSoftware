@@ -22,7 +22,7 @@
 
                 <div id="userOptions" style="display: inline-block;">
                     <div id="Username" style="font-size: larger; font-weight: bold">
-                        [[${#httpServletRequest.remoteUser}]]</div>
+                        [[${user.forname}]] [[${user.name}]]</div>
                     <div id="Logout">
                         <a th:href="@{logout}" class="nav-link">
                             Logout
