@@ -42,7 +42,23 @@
 
                     <div class="d-flex justify-content-between"></div>
 
-                    <button type="submit" value="Submit" class="submitButton">Submit</button>
+                    <button onclick="myFunction()" type="submit" value="Submit" class="submitButton">
+                        Submit
+                    </button>
+
+                    <script>
+                        function myFunction() {
+                            var a = [[${ day != -1}]];
+                        console.log(a);
+                            if (a) {
+                                alert("These workhours have been submitted!");
+                            }
+                            else {
+                                alert("You have already uploaded these hours");
+                            }
+                        }
+
+                    </script>
                 </form>
 
             </div>
