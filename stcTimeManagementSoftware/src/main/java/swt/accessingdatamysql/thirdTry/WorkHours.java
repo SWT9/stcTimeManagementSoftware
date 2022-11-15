@@ -35,7 +35,11 @@ public class WorkHours {
   }
 
   public void setId(Integer id) {
-    this.id = id;
+    if (id < 0) {
+      throw new IllegalArgumentException("id must not be negative");
+    } else {
+      this.id = id;
+    }
   }
 
   public String getWorkDate() {

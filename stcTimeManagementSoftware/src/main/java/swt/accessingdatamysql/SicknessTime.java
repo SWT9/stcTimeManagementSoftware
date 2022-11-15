@@ -21,14 +21,16 @@ public class SicknessTime {
     private String sicknessDay;
   
     private int totalSicknessDays;
-  
-  
-    public Integer getId() {
-      return id;
-    }
+
+    public Integer getId() { return id; }
   
     public void setId(Integer id) {
-      this.id = id;
+        if (id < 0) {
+            throw new IllegalArgumentException("id must not be negative");
+        }
+        else {
+            this.id = id;
+        }
     }
   
     public String getSicknessDay() {
@@ -44,7 +46,7 @@ public class SicknessTime {
     }
   
     public void setTotalSicknessDays(int totalSicknessDays) {
-      this.totalSicknessDays = totalSicknessDays;
+        this.totalSicknessDays = totalSicknessDays;
     }
     
     public Integer getUserId() {
