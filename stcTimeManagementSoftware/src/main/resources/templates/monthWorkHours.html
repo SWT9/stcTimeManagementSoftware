@@ -13,14 +13,101 @@
 </head>
 
 <body>
+
+<script>
+    // Function that checks every attribute: dataTable1, dataTable2...
+    // If the attribute is not null, then it will be displayed
+    function showTable() {
+        const i = 1;
+        const attribute = "dataTable" + i;
+
+        const tr = document.createElement('tr');
+        tr.setAttribute("th:each", attribute + " : ${" + attribute + "}");
+        const td1 = document.createElement("td");
+        td1.setAttribute("th:text", "${" + attribute + ".workDate}");
+        const td2 = document.createElement("td");
+        td2.setAttribute("th:text", "${" + attribute + ".startTime}");
+        const td3 = document.createElement("td");
+        td3.setAttribute("th:text", "${" + attribute + ".endTime}");
+        const td4 = document.createElement("td");
+        td4.setAttribute("th:text", "${" + attribute + ".workTime}");
+
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+
+        // Add element tr to the first tbody with class name "tableBody"
+        document.getElementsByClassName("tableBody")[0].appendChild(tr);
+
+        //document.getElementById("scryptTBody").appendChild(tr);
+
+        //document.getElementsByTagName("tbody")[0].appendChild(tr);
+
+        console.log("HERE: "+attribute);
+
+        /*while (true) {
+            var attribute = "dataTable" + i;
+
+            if (document.getElementById(attribute) != null) {
+                console.log(attribute);
+                // getUsername.findById();
+                // <tr>
+                //   <td th:text="${dataTable1.workDate}"></td>
+                //   <td th:text="${dataTable1.startTime}"></td>
+                //   <td th:text="${dataTable1.endTime}"></td>
+                //   <td th:text="${dataTable1.workTime}"></td>
+                // </tr>
+
+                var tr = document.createElement("tr");
+                tr.setAttribute("th:each", attribute + " : ${" + attribute + "}");
+                console.log(tr);
+                var td1 = document.createElement("td");
+                td1.setAttribute("th:text", "${" + attribute + ".workDate}");
+                var td2 = document.createElement("td");
+                td2.setAttribute("th:text", "${" + attribute + ".startTime}");
+                var td3 = document.createElement("td");
+                td3.setAttribute("th:text", "${" + attribute + ".endTime}");
+                var td4 = document.createElement("td");
+                td4.setAttribute("th:text", "${" + attribute + ".workTime}");
+
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                document.getElementsByTagName("tbody")[0].appendChild(tr);
+                i++;
+            } else {
+                break;
+            }
+        }*/
+    }
+
+
+</script>
+<script>
+    showTable();
+</script>
+
+
     <div id="main" class="d-flex justify-content-between">
         <div th:replace="navbar :: navbar">...</div>
         <div id="mainSpace">
             <h1>Month Work Hours</h1>
 
-
-
-
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Work Date </th>
+                    <th>Start Hour </th>
+                    <th>End Hour </th>
+                    <th>Total Day Worked Hours </th>
+                </tr>
+                </thead>
+                <tbody class="tableBody" id="scryptTBody">
+                <!-- Execute the scrypt showTable()  -->
+                </tbody>
+            </table>
 
 
         </div>

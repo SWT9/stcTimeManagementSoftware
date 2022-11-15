@@ -2,6 +2,8 @@ package swt.accessingdatamysql.thirdTry;
 
 import java.time.Duration;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -130,9 +132,38 @@ public class HomeController {
     @GetMapping("/monthWorkHours")
     public String monthWorkHours(Model model) {
         User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
+        model.addAttribute("work", new WorkHours());
         model.addAttribute("user", user);
+        model.addAttribute("OlddataTable", workHoursRepository.findAllByUserId(user.getId()));
+
+        // Get all users with the same supervisor
+        /*List<User> usersFromOneGroup = getSupervisorGroupUsers(user.getSupervisorGroupId());
+        int id = 0;
+        for (int i=0; i < usersFromOneGroup.size(); i++){
+            id = usersFromOneGroup.get(i).getId();
+            String attributeName = "dataTable" + i;
+            model.addAttribute(attributeName, workHoursRepository.findAllByUserId(id));
+        }*/
+
+        // TODO: uncomment the code above and delete the code below when in the database, the users have a valid supervisorGroupId assigned
+
+        model.addAttribute("dataTable1", workHoursRepository.findAllByUserId(3));
+        model.addAttribute("dataTable2", workHoursRepository.findAllByUserId(4));
+        model.addAttribute("dataTable3", workHoursRepository.findAllByUserId(1));
+
         return "monthWorkHours";
     }
+
+    public List<User> getSupervisorGroupUsers(int supervisorGroupId) {
+        List<User> supervisorGroupUsers = new ArrayList<>();
+        for (User user : userRepository.findAll()) {
+            if (user.getSupervisorGroupId() == supervisorGroupId) {
+                supervisorGroupUsers.add(user);
+            }
+        }
+        return supervisorGroupUsers;
+    }
+
     @GetMapping("/vacationRequests")
     public String vacationRequests(Model model) {
         User user = userRepository.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
