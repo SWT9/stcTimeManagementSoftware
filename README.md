@@ -39,9 +39,14 @@ Command for exiting the MySQL server `exit;`
 
 # Commands for running the server:
 
-Use this command inside the project folder `~/stcTimeManagementSoftware`:
+Use this command for windows:
 
     graddlew bootRun
+
+Use this command for macOS or linux:
+
+    ./gradlew bootRun
+    
 
 # Commands for using the website:
 
