@@ -47,6 +47,16 @@
                             <td>[[${user.id}]]</td>
                         </tr>
 
+                        <tr>
+                            <th>total sick days: </th>
+                            <td>[[${user.totalSickDays}]]</td>
+                        </tr>
+
+                        <tr>
+                            <th>monthly work hours: </th>
+                            <td>[[${user.monthlyWorkHours}]]</td>
+                        </tr>
+
                         <tr th:if="${user.authority == ('hr') or user.authority == ('superhr')}">
                             <th>
                                 HR id:

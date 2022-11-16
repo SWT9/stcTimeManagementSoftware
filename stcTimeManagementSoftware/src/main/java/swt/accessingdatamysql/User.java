@@ -4,8 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
@@ -36,6 +34,10 @@ public class User {
   private Boolean enabled;
 
   private String authority;
+
+  private Integer monthlyWorkHours;
+
+  private Integer totalSickDays;
 
 
 
@@ -133,6 +135,22 @@ public class User {
 
   public void setAuthority(String authority) {
     this.authority = authority;
+  }
+
+  public Integer getMonthlyWorkHours() {
+    return monthlyWorkHours;
+  }
+
+  public void setMonthlyWorkHours(Integer monthlyWorkHours) {
+    this.monthlyWorkHours = monthlyWorkHours;
+  }
+
+  public Integer getTotalSickDays() {
+    return totalSickDays;
+  }
+
+  public void setTotalSickDays(Integer totalSickDays) {
+    this.totalSickDays = totalSickDays;
   }
 
 }
