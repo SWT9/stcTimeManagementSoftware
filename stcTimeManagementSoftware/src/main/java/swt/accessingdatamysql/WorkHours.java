@@ -1,4 +1,4 @@
-package swt.accessingdatamysql.thirdTry;
+package swt.accessingdatamysql;
 
 
 import javax.persistence.Entity;
@@ -7,8 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import swt.accessingdatamysql.User;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class WorkHours {

@@ -1,4 +1,4 @@
-package swt.accessingdatamysql.thirdTry;
+package swt.accessingdatamysql;
 
 import javax.sql.DataSource;
 
@@ -8,11 +8,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer.MvcMatchersAuthorizedUrl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.DefaultSecurityFilterChain;
-import org.springframework.security.web.SecurityFilterChain;
 
 
 
@@ -30,11 +27,6 @@ public class JdbcSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .passwordEncoder(passwordEncoder())
                 .usersByUsernameQuery(
                 "SELECT username, password, enabled from user where username = ?")
-        /*        .authoritiesByUsernameQuery(
-                "SELECT u.username, a.authority " +
-                "FROM user_authorities a, user u " +
-                "WHERE u.username = ? " +
-                "AND u.id = a.user_id"*/ 
                 .authoritiesByUsernameQuery(
                 "SELECT username, authority from user where username = ?" 
                 
@@ -53,9 +45,14 @@ public class JdbcSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.formLogin();
 
         http.authorizeRequests()
-                .antMatchers("/home").hasAnyAuthority("hr", "supervisor", "admin", "employee")
+                .antMatchers("/home").hasAnyAuthority("hr", "supervisor", "admin", "employee", "superhr")
                 .antMatchers("/demo/*").hasAuthority("admin")
-                // .antMatchers("/workHours").hasAnyAuthority("hr", "supervisor", "admin", "employee")
+                .antMatchers("/workHours").hasAnyAuthority("hr", "supervisor", "admin", "employee")
+                .antMatchers("/applyVacation").hasAnyAuthority("hr", "supervisor", "admin", "employee")
+                .antMatchers("/applySickness").hasAnyAuthority("hr", "supervisor", "admin", "employee")
+                .antMatchers("/monthWorkHours").hasAnyAuthority("supervisor", "admin")
+                .antMatchers("/vacationRequests").hasAnyAuthority("supervisor", "admin")
+                .antMatchers("/userInfo").hasAnyAuthority("hr", "supervisor", "admin", "employee")
                 .antMatchers("/").permitAll();
         
         http.csrf().disable();

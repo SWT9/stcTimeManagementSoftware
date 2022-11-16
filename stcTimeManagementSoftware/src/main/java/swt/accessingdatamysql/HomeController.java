@@ -1,4 +1,4 @@
-package swt.accessingdatamysql.thirdTry;
+package swt.accessingdatamysql;
 
 import java.time.Duration;
 import java.time.LocalTime;
@@ -12,13 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import swt.accessingdatamysql.SicknessTime;
-import swt.accessingdatamysql.SicknessTimeRepository;
-import swt.accessingdatamysql.User;
-import swt.accessingdatamysql.UserRepository;
-import swt.accessingdatamysql.VacationTime;
-import swt.accessingdatamysql.WorkHoursRepository;
 
 @Controller
 public class HomeController {
@@ -70,10 +63,11 @@ public class HomeController {
         work.setUserId(user.getId());
         
         work.setWorkTime(Duration.between(LocalTime.parse(work.getStartTime()), LocalTime.parse(work.getEndTime())).toHours()); 
-
+        user.setMonthlyWorkHours((int) (user.getMonthlyWorkHours()+work.getWorkTime()));
         model.addAttribute("user", user);
         model.addAttribute("work", work);
         workHoursRepository.save(work);
+        model.addAttribute("dataTable", workHoursRepository.findAllByUserId(user.getId()));
         return "workHours";
     }
 
@@ -93,6 +87,7 @@ public class HomeController {
         model.addAttribute("user", user);
         model.addAttribute("time", time);
         vacationTimeRepository.save(time);
+        model.addAttribute("dataTable", vacationTimeRepository.findAllByUserId(user.getId()));
         return "applyVacation";
     }
 
@@ -122,9 +117,10 @@ public class HomeController {
         model.addAttribute("day", day);
         // print out the day
         // System.out.println(day.getSicknessDay());
-        
+        user.setTotalSickDays(user.getTotalSickDays()+1);
         sicknessTimeRepository.save(day);     
-        
+        model.addAttribute("dataTable", sicknessTimeRepository.findAllByUserId(user.getId()));
+
         return "applySickness";
     }
 

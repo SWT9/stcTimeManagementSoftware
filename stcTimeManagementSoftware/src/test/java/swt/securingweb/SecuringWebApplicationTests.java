@@ -10,9 +10,10 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.FormLoginRequestBuilder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import swt.accessingdatamysql.AccessingDataMysqlApplication;
-import swt.accessingdatamysql.thirdTry.HomeController;
-import swt.accessingdatamysql.thirdTry.SecurityConfiguration;
+import swt.accessingdatamysql.Application;
+import swt.accessingdatamysql.HomeController;
+import swt.accessingdatamysql.JdbcSecurityConfiguration;
+
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestBuilders.formLogin;
 import static org.springframework.security.test.web.servlet.response.SecurityMockMvcResultMatchers.authenticated;
@@ -22,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-@ContextConfiguration(classes = SecurityConfiguration.class)
+@ContextConfiguration(classes = JdbcSecurityConfiguration.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @AutoConfigureMockMvc
 public class SecuringWebApplicationTests {
@@ -31,12 +32,12 @@ public class SecuringWebApplicationTests {
 
 	@Test
 	public void loginWithValidUserThenAuthenticated() throws Exception {
-		FormLoginRequestBuilder login = formLogin()
-			.user("user")
-			.password("password");
+		FormLoginRequestBuilder login = formLogin("/login")
+			.user("admin")
+			.password("admin");
 
 		mockMvc.perform(login)
-			.andExpect(authenticated().withUsername("user"));
+			.andExpect(authenticated().withUsername("admin"));
 	}
 
 	@Test

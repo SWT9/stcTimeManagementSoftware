@@ -3,13 +3,14 @@ package swt;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.ContextHierarchy;
-import swt.accessingdatamysql.thirdTry.HomeController;
-import swt.accessingdatamysql.thirdTry.WorkHours;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.springframework.ui.Model;
+
+import swt.accessingdatamysql.HomeController;
+import swt.accessingdatamysql.WorkHours;
 
 
 @ContextHierarchy({
