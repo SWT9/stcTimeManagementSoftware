@@ -59,9 +59,7 @@ All users password: `123``
 | `tomd`      | `tom123`   | SUPERVISOR |
 | `wilmaw`    | `wilma123` | HR         |
 | `martind`   | `martin123`| EMPLOYEE   |
-
 | `admin`     | `admin`    | ADMIN      |
-
 | `employee`  | `123`      | EMPLOYEE   |
 | `supervisor`| `123`      | SUPERVISOR |
 | `HR`        | `123`      | HR         |
