@@ -47,12 +47,12 @@ public class JdbcSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/home").hasAnyAuthority("hr", "supervisor", "admin", "employee", "superhr")
                 .antMatchers("/demo/*").hasAuthority("admin")
-                .antMatchers("/workHours").hasAnyAuthority("hr", "supervisor", "admin", "employee")
-                .antMatchers("/applyVacation").hasAnyAuthority("hr", "supervisor", "admin", "employee")
-                .antMatchers("/applySickness").hasAnyAuthority("hr", "supervisor", "admin", "employee")
-                .antMatchers("/monthWorkHours").hasAnyAuthority("supervisor", "admin")
-                .antMatchers("/vacationRequests").hasAnyAuthority("supervisor", "admin")
-                .antMatchers("/userInfo").hasAnyAuthority("hr", "supervisor", "admin", "employee")
+                .antMatchers("/workHours").hasAnyAuthority("hr", "supervisor", "admin", "employee", "superhr")
+                .antMatchers("/applyVacation").hasAnyAuthority("hr", "supervisor", "admin", "employee", "superhr")
+                .antMatchers("/applySickness").hasAnyAuthority("hr", "supervisor", "admin", "employee", "superhr")
+                .antMatchers("/monthWorkHours").hasAnyAuthority("supervisor", "admin", "superhr")
+                .antMatchers("/vacationRequests").hasAnyAuthority("supervisor", "admin", "superhr")
+                .antMatchers("/userInfo").hasAnyAuthority("hr", "supervisor", "admin", "employee", "superhr")
                 .antMatchers("/").permitAll();
         
         http.csrf().disable();
